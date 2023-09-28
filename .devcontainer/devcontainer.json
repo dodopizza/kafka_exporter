@@ -1,0 +1,49 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.245.2/containers/go
+{
+    "name": "Go",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "args": {
+            // Update the VARIANT arg to pick a version of Go: 1, 1.19, 1.18, 1-bullseye, 1.19-bullseye, 1.18-bullseye, 1-buster, 1.19-buster, 1.18-buster
+            "VARIANT": "1.20",
+        }
+    },
+    "features": {
+        "ghcr.io/devcontainers/features/azure-cli:1": {
+            "version": "latest"
+        }
+    },
+    "runArgs": [
+        "--cap-add=SYS_PTRACE",
+        "--security-opt",
+        "seccomp=unconfined"
+    ],
+    "settings": {
+        "go.toolsManagement.checkForUpdates": "local",
+        "go.useLanguageServer": true,
+        "go.gopath": "/go",
+        "go.goroot": "/usr/local/go",
+        "go.toolsGopath": "/go/bin",
+        "files.insertFinalNewline": true,
+        "[json]": {
+            "files.insertFinalNewline": false
+        },
+        "[jsonc]": {
+            "files.insertFinalNewline": false
+        },
+    },
+    "extensions": [
+		"golang.Go",
+		"ms-vsliveshare.vsliveshare",
+		"timonwong.shellcheck",
+		"foxundermoon.shell-format",
+		"ms-azuretools.vscode-docker",
+		"ethan-reesor.vscode-go-test-adapter",
+		"hbenl.vscode-test-explorer",
+		"GitHub.copilot",
+		"eamodio.gitlens",
+		"golang.go"
+	],
+    "remoteUser": "vscode"
+}
